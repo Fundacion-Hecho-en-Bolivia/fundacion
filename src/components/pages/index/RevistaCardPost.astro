@@ -1,0 +1,12 @@
+---
+// src/components/PublicacionCard.astro
+const { imagen, enlace } = Astro.props;
+---
+
+<a href={enlace} class="block w-[260px] h-[440px] overflow-hidden rounded-md shadow hover:shadow-lg transition-shadow duration-300">
+  <img
+    src={imagen}
+    alt="Imagen de publicación"
+    class="w-full h-full object-cover object-top"
+  />
+</a>

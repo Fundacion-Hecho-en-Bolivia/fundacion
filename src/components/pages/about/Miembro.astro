@@ -1,0 +1,13 @@
+---
+const {nombre, cargo, imagen} = Astro.props;
+---
+
+
+<div class="bg-gray-800 p-3 border rounded-lg">
+  <div class="bg-gray-50 aspect-square rounded-lg overflow-hidden">
+    <img src={imagen} class="w-full h-full object-cover object-top" />
+  </div>
+  <div class="text-center mt-4 mb-1">
+    <h4 class="text-[15px] font-medium text-white">{cargo}</h4>
+    <p class="text-[13px] mt-1.5 text-slate-300 font-medium">{nombre}</p>
+  </div>

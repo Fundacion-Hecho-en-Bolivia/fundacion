@@ -1,0 +1,26 @@
+---
+// src/components/Directorio.astro
+import Miembro from '../../components/pages/about/Miembro.astro';
+import { directorio } from '../../components/pages/about/directorio';
+---
+
+<section class="py-16 bg-base-100">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-slate-900">Directorio</h2>
+      <p class="text-gray-600 mt-2">
+        Miembros actuales del directorio institucional
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+      {directorio.map((miembro) => (
+        <Miembro 
+          nombre={miembro.nombre} 
+          cargo={miembro.cargo} 
+          imagen={miembro.imagen} 
+        />
+      ))}
+    </div>
+  </div>
+</section>

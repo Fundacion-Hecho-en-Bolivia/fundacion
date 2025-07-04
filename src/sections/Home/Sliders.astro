@@ -1,0 +1,95 @@
+<section class="py-16 bg-base-100">
+  <h2 class="text-3xl font-bold text-center mb-8">Empresas Miembro</h2>
+
+  <div class="relative w-full overflow-hidden max-w-6xl mx-auto">
+    <!-- Slider Container -->
+    <div
+      id="logoCarousel"
+      class="flex transition-transform duration-500 ease-in-out"
+      style="transform: translateX(0);"
+    >
+      <!-- Logos (puedes duplicar para efecto loop) -->
+      <div class="flex-shrink-0 w-32 h-32 flex items-center justify-center">
+        <img src="https://copelme.com/wp-content/uploads/2019/08/Logo-Footer.png" class="w-28 h-28 rounded-full object-contain bg-white p-2 shadow" />
+      </div>
+      <div class="flex-shrink-0 w-32 h-32 flex items-center justify-center">
+        <img src="/logo-coboce.png" class="w-28 h-28 rounded-full object-contain bg-white p-2 shadow" />
+      </div>
+      <div class="flex-shrink-0 w-32 h-32 flex items-center justify-center">
+        <img src="/logo-coboce.png" class="w-28 h-28 rounded-full object-contain bg-white p-2 shadow" />
+      </div>
+  
+
+
+    </div>
+  </div>
+</section>
+<section class="py-16 bg-base-100">
+  <h2 class="text-3xl font-bold text-center mb-8">Alianzas Internacionales</h2>
+
+  <div class="relative w-full overflow-hidden max-w-6xl mx-auto">
+    <!-- Slider Container -->
+    <div
+      id="alianzasCarousel"
+      class="flex transition-transform duration-700 ease-in-out"
+      style="transform: translateX(0);"
+    >
+      <!-- Logos: asegúrate de tener múltiplos de 3 para mejor efecto -->
+      <div class="flex-shrink-0 w-1/3 h-32 flex items-center justify-center px-2">
+        <img src="/logo-coboce.png" class="w-36 h-24 rounded-full object-contain bg-white p-2 shadow" />
+      </div>
+      <div class="flex-shrink-0 w-1/3 h-32 flex items-center justify-center px-2">
+        <img src="/logo-coboce.png" class="w-36 h-24 rounded-full object-contain bg-white p-2 shadow" />
+      </div>
+      <div class="flex-shrink-0 w-1/3 h-32 flex items-center justify-center px-2">
+        <img src="/logo-coboce.png" class="w-36 h-24 rounded-full object-contain bg-white p-2 shadow" />
+      </div>
+      <div class="flex-shrink-0 w-1/3 h-32 flex items-center justify-center px-2">
+        <img src="/logo-coboce.png" class="w-36 h-24 rounded-full object-contain bg-white p-2 shadow" />
+      </div>
+      <div class="flex-shrink-0 w-1/3 h-32 flex items-center justify-center px-2">
+        <img src="/logo-coboce.png" class="w-36 h-24 rounded-full object-contain bg-white p-2 shadow" />
+      </div>
+      <div class="flex-shrink-0 w-1/3 h-32 flex items-center justify-center px-2">
+        <img src="/logo-coboce.png" class="w-36 h-24 rounded-full object-contain bg-white p-2 shadow" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const carousel = document.getElementById("alianzasCarousel");
+  const slideGroup = 3;
+  const itemWidth = carousel.offsetWidth / slideGroup;
+  const totalItems = carousel.children.length;
+  let currentIndex = 0;
+
+  function moveCarousel() {
+    const maxIndex = Math.floor(totalItems / slideGroup) - 1;
+    currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+    const offset = -(itemWidth * slideGroup * currentIndex);
+    carousel.style.transform = `translateX(${offset}px)`;
+  }
+
+  setInterval(moveCarousel, 3000); // Cada 3 segundos
+</script>
+
+
+<script>
+  const carousel = document.getElementById("logoCarousel");
+  const slideWidth = 128; // Width of one item in pixels (w-32 = 128px)
+  let currentPosition = 0;
+
+  function moveCarousel() {
+    const totalWidth = carousel.scrollWidth;
+    currentPosition -= slideWidth;
+
+    if (Math.abs(currentPosition) >= totalWidth / 2) {
+      currentPosition = 0;
+    }
+
+    carousel.style.transform = `translateX(${currentPosition}px)`;
+  }
+
+  setInterval(moveCarousel, 2000); // Change slide every 2 seconds
+</script>

@@ -1,0 +1,25 @@
+---
+// src/components/Subportales.astro
+import SubPortalCard from '../../components/pages/index/SubPortalCard.astro';
+import { subportales } from '../../components/pages/index/subportales';
+---
+
+<section class="py-16 px-6 md:px-12 bg-base-200">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10 text-base-content">
+      Nuestros Subportales de la Fundacion
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {subportales.map((portal) => (
+        <SubPortalCard 
+          titulo={portal.titulo}
+          descripcion={portal.descripcion}
+          imagen={portal.imagen}
+          enlace={portal.enlace}
+          textoBoton={portal.textoBoton}
+        />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+// src/components/UltimasPublicaciones.astro
+import RevistaCardPost from '../../components/pages/index/RevistaCardPost.astro';
+import {revistas} from '../../components/pages/index/revistas'
+---
+
+<section class="py-16 px-6 md:px-12 bg-base-100">
+  <div class="max-w-5xl max-lg:max-w-3xl max-sm:max-w-sm mx-auto">
+    <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Últimas Publicaciones</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-sm:gap-8">
+      {revistas.map((revistas) => (
+        <RevistaCardPost 
+          titulo={revistas.titulo}
+          descripcion={revistas.resumen}
+          imagen={revistas.imagen}
+          enlace={revistas.enlace}
+        />
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/revista-digital" class="btn btn-primary btn-lg">
+        Ver más publicaciones
+      </a>
+    </div>
+  </div>
+</section>

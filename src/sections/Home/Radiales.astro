@@ -1,0 +1,21 @@
+---
+// src/components/CunasRadiales.astro
+import RadialCard from '../../components/pages/index/RadialCard.astro';
+import { radiales } from '../../components/pages/index/radiales';
+---
+
+<section class="bg-base-100 py-16">
+  <div class="mx-auto max-w-6xl px-4">
+    <h2 class="mb-10 text-center text-3xl font-bold text-slate-900">Cuñas Radiales</h2>
+
+    <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+      {radiales.map((cuna) => (
+        <RadialCard
+          titulo={cuna.titulo}
+          imagen={cuna.imagen}
+          audio={cuna.audio}
+        />
+      ))}
+    </div>
+  </div>
+</section>
