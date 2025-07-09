@@ -108,11 +108,12 @@
     </div>
   </section>
 
-  <script>
-    function mostrarMasDecretos() {
-      document.querySelectorAll(".card-decreto.hidden").forEach((card) => {
-        card.classList.remove("hidden");
-      });
-      document.getElementById("btn-ver-mas").style.display = "none";
-    }
-  </script>
+<script>
+  function mostrarMasDecretos() {
+    document.querySelectorAll(".card-decreto.hidden").forEach((card) => {
+      card.classList.remove("hidden");
+    });
+    const btn = document.getElementById("btn-ver-mas");
+    if (btn) btn.style.display = "none";
+  }
+</script>
