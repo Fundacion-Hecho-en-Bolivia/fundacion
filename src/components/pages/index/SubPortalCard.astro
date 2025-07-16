@@ -2,16 +2,18 @@
 // src/components/SubportalCard.astro
 const { titulo, descripcion, imagen, enlace, textoBoton } = Astro.props;
 ---
-
-<div class="card bg-base-100 shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-transform duration-300 border border-base-300">
+<section class="flex flex-col gap-4 ">
+<div class="card bg-white shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-transform duration-300 border border-base-300">
   <figure>
     <img src={imagen} alt={titulo} class="w-full h-48 object-cover" />
   </figure>
-  <div class="card-body">
-    <h3 class="card-title text-base-content">{titulo}</h3>
-    <p class="text-sm text-base-content/70">{descripcion}</p>
-    <div class="card-actions justify-end mt-4">
-      <a href={enlace} class="btn btn-primary btn-sm">{textoBoton}</a>
-    </div>
+</div>
+
+<div class="card-body shadow-lg bg-[#f4f9fd]">
+  <h3 class="card-title  text-[#3f3f3f] ">{titulo}</h3>
+  <p class="text-sm text-base-content/70 text-[#020077] ">{descripcion}</p>
+  <div class="card-actions justify-end mt-4">
+    <a href={enlace} class="btn bg-green-600 hover:bg-green-700 btn-sm text-white">{textoBoton}</a>
   </div>
 </div>
+</section>

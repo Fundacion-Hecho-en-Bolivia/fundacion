@@ -1,5 +1,4 @@
 ---
-// src/components/CunasRadiales.astro
 import RadialCard from '../../components/pages/index/RadialCard.astro';
 import { radiales } from '../../components/pages/index/radiales';
 ---
@@ -8,14 +7,40 @@ import { radiales } from '../../components/pages/index/radiales';
   <div class="mx-auto max-w-6xl px-4">
     <h2 class="mb-10 text-center text-3xl font-bold text-slate-900">Cuñas Radiales</h2>
 
-    <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
-      {radiales.map((cuna) => (
+    <!-- Grid de cuñas radiales -->
+    <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {radiales.map((cuna, index) => (
         <RadialCard
           titulo={cuna.titulo}
           imagen={cuna.imagen}
           audio={cuna.audio}
+          className="cuna-card group"
         />
       ))}
     </div>
   </div>
 </section>
+
+<!-- JavaScript para la funcionalidad de los audios -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const radialCards = document.querySelectorAll('.cuna-card');
+
+    radialCards.forEach(card => {
+      const audio = card.querySelector('audio');
+      const playButton = card.querySelector('.play-btn');
+
+      // Evento para reproducir/pausar el audio
+      playButton.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playButton.innerHTML = '<i class="fas fa-pause"></i>'; // Mostrar icono de pausa
+        } else {
+          audio.pause();
+          playButton.innerHTML = '<i class="fas fa-play"></i>'; // Mostrar icono de play
+        }
+      });
+    });
+  });
+</script>
+

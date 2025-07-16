@@ -1,0 +1,63 @@
+<section class="bg-base-100 py-4">
+  <div class="relative mx-auto w-full  md:w-[80%] h-[70vh] md:h-[80vh] overflow-hidden flex items-center justify-center">
+    <!-- Carrusel (wrapper) -->
+    <div id="carouselWrapper" class="flex transition-transform duration-700 ease-in-out">
+      <!-- Slide 1 -->
+      <div class="carousel-item w-full">
+        <img src="http://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2024/05/LanzamientoVAON.jpg" class="w-full h-full object-cover" />
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-item w-full">
+        <img src="http://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2023/12/IMG-20231204-WA0000.jpg" class="w-full h-full object-cover" />
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-item w-full">
+        <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp" class="w-full h-full object-cover" />
+      </div>
+      <!-- Slide 4 -->
+      <div class="carousel-item w-full">
+        <img src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp" class="w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <!-- Botones de navegación -->
+    <div class="absolute left-5 right-5 top-1/2 transform -translate-y-1/2 flex justify-between">
+      <button id="prevBtn" class="btn-circle bg-gray-600 text-white p-4 rounded-full hover:bg-gray-700">❮</button>
+      <button id="nextBtn" class="btn-circle bg-gray-600 text-white p-4 rounded-full hover:bg-gray-700">❯</button>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const carouselWrapper = document.getElementById('carouselWrapper');
+  const totalSlides = document.querySelectorAll('.carousel-item').length;
+  let currentIndex = 0;
+
+  // Función para mover el carrusel a la izquierda
+  function moveToNextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides; // Ciclo continuo
+    updateCarouselPosition();
+  }
+
+  // Función para mover el carrusel a la derecha
+  function moveToPrevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Ciclo continuo
+    updateCarouselPosition();
+  }
+
+  // Actualiza la posición del carrusel
+  function updateCarouselPosition() {
+    const offset = -100 * currentIndex; // Desplazamiento en porcentaje
+    carouselWrapper.style.transform = `translateX(${offset}%)`;
+  }
+
+  // Asignar eventos a los botones
+  document.getElementById('nextBtn').addEventListener('click', moveToNextSlide);
+  document.getElementById('prevBtn').addEventListener('click', moveToPrevSlide);
+
+  // Configurar transición automática (opcional)
+  setInterval(moveToNextSlide, 5000); // Avanzar automáticamente cada 5 segundos
+});
+</script>
+
