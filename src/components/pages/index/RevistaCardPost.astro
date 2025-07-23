@@ -1,12 +1,30 @@
 ---
-// src/components/PublicacionCard.astro
-const { imagen, enlace } = Astro.props;
+// src/components/pages/index/RevistaCardPost.astro
+const { imagen, titulo, descripcion, enlace } = Astro.props;
 ---
 
-<a href={enlace} class="block w-[260px] h-[440px] overflow-hidden rounded-md shadow hover:shadow-lg transition-shadow duration-300">
-  <img
-    src={imagen}
-    alt="Imagen de publicación"
-    class="w-full h-full object-cover object-top"
-  />
-</a>
+<article class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col h-full">
+  <a href={enlace}>
+    <img 
+      src={imagen} 
+      alt={`Imagen de publicación: ${titulo}`} 
+      class="w-full h-56 object-cover object-top transition-transform duration-300 hover:scale-105"
+    />
+  </a>
+  
+  <div class="p-4 flex flex-col justify-between flex-grow">
+    <div>
+      <h3 class="text-lg font-semibold text-gray-800 mb-2">{titulo}</h3>
+      <p class="text-sm text-gray-600 line-clamp-3">{descripcion}</p>
+    </div>
+
+    <div class="mt-4">
+      <a 
+        href={enlace} 
+        class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors"
+      >
+        Leer más →
+      </a>
+    </div>
+  </div>
+</article>

@@ -1,25 +1,51 @@
 ---
-// src/components/Directorio.astro
-import Miembro from '../../components/pages/about/Miembro.astro';
-import { directorio } from '../../components/pages/about/directorio';
+const presidente = {
+  nombre: "Lic. Juan Pérez",
+  cargo: "Presidente",
+  imagen: "https://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2024/09/foto_comunicado_ok-scaled.jpg"
+};
+
+const otrosMiembros = [
+  { nombre: "Ing. María Rodríguez", cargo: "Vicepresidenta" },
+  { nombre: "Dr. Carlos Méndez", cargo: "Secretario General" },
+  { nombre: "Lic. Ana Gómez", cargo: "Tesorera" },
+  { nombre: "Sr. Luis Herrera", cargo: "Vocal" },
+  { nombre: "Sra. Carmen Díaz", cargo: "Vocal" },
+];
 ---
 
-<section class="py-16 bg-base-100">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="text-center">
-      <h2 class="text-3xl font-bold text-slate-900">Directorio</h2>
-      <p class="text-gray-600 mt-2">
-        Miembros actuales del directorio institucional
-      </p>
+<section class="py-24 bg-gray-50 px-6">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">Directorio</h2>
+
+    <!-- Presidente -->
+    <div class="mx-auto mb-20" style="width: 80%; max-width: 1280px;">
+      <div class="relative rounded-2xl overflow-hidden shadow-xl border border-gray-300 bg-white transition-transform duration-300 hover:scale-[1.02]">
+        <img 
+          src={presidente.imagen} 
+          alt={presidente.nombre} 
+          class="w-full h-auto object-cover object-top"
+          loading="eager"
+        />
+        <div class="p-8">
+          <h3 class="text-3xl font-semibold text-gray-900">{presidente.cargo}</h3>
+          <p class="mt-2 text-gray-700 text-lg">{presidente.nombre}</p>
+        </div>
+      </div>
     </div>
 
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
-      {directorio.map((miembro) => (
-        <Miembro 
-          nombre={miembro.nombre} 
-          cargo={miembro.cargo} 
-          imagen={miembro.imagen} 
-        />
+    <!-- Otros miembros en grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+      {otrosMiembros.map((miembro) => (
+        <div 
+          class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 cursor-default
+                 transition-shadow duration-300 hover:shadow-2xl hover:-translate-y-1"
+          role="listitem"
+          tabindex="0"
+        >
+          <h4 class="text-xl font-semibold text-gray-900">{miembro.cargo}</h4>
+          <p class="mt-1 text-gray-600 text-base">{miembro.nombre}</p>
+        </div>
       ))}
     </div>
   </div>

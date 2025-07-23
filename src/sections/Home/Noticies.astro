@@ -1,147 +1,258 @@
-<section class="py-16 px-6 md:px-12 bg-white">
-  <div class="max-w-6xl mx-auto">
+<!--
+Paleta institucional:
+  Base: bg-main (Blanco #fff)
+  Texto principal: text-black (Negro #010101)
+  Título/acento: text-title (Navy Blue #020077)
+  Acentos: text-accent/bg-accent (Sunglow #ffc42a), text-secondary/bg-secondary (Elf Green #098666)
+-->
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-main">
+  <div class="max-w-7xl mx-auto">
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-title mb-4">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-title to-secondary">
+          Noticias Destacadas
+        </span>
+      </h2>
+      <p class="text-lg text-jumbo max-w-3xl mx-auto">
+        Mantente informado con las últimas novedades nacionales e internacionales
+      </p>
+    </div>
 
     <!-- Tabs -->
-    <div class="flex justify-center mb-10">
-      <div class="inline-flex space-x-4 border-b-2 border-gray-200">
-        <button id="tab-nacionales" class="tab-btn text-lg font-semibold px-4 py-2 border-b-4 border-indigo-600 text-indigo-600">
+    <div class="flex justify-center mb-12">
+      <div class="inline-flex rounded-lg bg-gray-100 p-1">
+        <button 
+          id="tab-nacionales" 
+          class="tab-btn px-6 py-2 rounded-md text-lg font-semibold text-title bg-white shadow-sm transition-all duration-300"
+          aria-selected="true"
+          aria-controls="contenido-nacionales"
+        >
           Noticias Nacionales
         </button>
-        <button id="tab-internacionales" class="tab-btn text-lg font-semibold px-4 py-2 border-b-4 border-transparent text-gray-600 hover:text-emerald-600">
+        <button 
+          id="tab-internacionales" 
+          class="tab-btn px-6 py-2 rounded-md text-lg font-semibold text-jumbo hover:text-secondary transition-colors duration-300"
+          aria-selected="false"
+          aria-controls="contenido-internacionales"
+        >
           Noticias Internacionales
         </button>
       </div>
     </div>
 
     <!-- Contenido de Noticias Nacionales -->
-    <div id="contenido-nacionales">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div id="contenido-nacionales" class="tab-content">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Noticia 1 -->
-        <article class="flex flex-col bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <img src="https://placehold.co/240x160" alt="Noticia Nacional 1" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 text-indigo-700">Noticia Nacional 1</h3>
-            <p class="text-gray-700 leading-relaxed">
-              Breve resumen de la noticia nacional número uno para que el usuario tenga una idea clara.
+        <article class="flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden h-full">
+          <div class="aspect-w-16 aspect-h-9">
+            <img src="https://placehold.co/600x400/098666/ffffff?text=Noticia+Nacional" alt="Noticia Nacional 1" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <span class="text-sm text-accent font-semibold">Nacional</span>
+              <span class="mx-2 text-gray-300">•</span>
+              <span class="text-sm text-jumbo">15 Mayo 2023</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-title">Título de Noticia Nacional 1</h3>
+            <p class="text-jumbo leading-relaxed mb-4">
+              Breve resumen de la noticia nacional número uno para que el usuario tenga una idea clara del contenido.
             </p>
-            <a href="/noticias/nacional-1" class="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-semibold">Leer más →</a>
+            <a href="/noticias/nacional-1" class="inline-flex items-center text-accent hover:text-title font-semibold transition-colors">
+              Leer más
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </article>
 
         <!-- Noticia 2 -->
-        <article class="flex flex-col bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <img src="https://placehold.co/240x160" alt="Noticia Nacional 2" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 text-indigo-700">Noticia Nacional 2</h3>
-            <p class="text-gray-700 leading-relaxed">
-              Resumen corto de la segunda noticia nacional destacada para captar la atención.
+        <article class="flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden h-full">
+          <div class="aspect-w-16 aspect-h-9">
+            <img src="https://placehold.co/600x400/098666/ffffff?text=Noticia+Nacional" alt="Noticia Nacional 2" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <span class="text-sm text-accent font-semibold">Nacional</span>
+              <span class="mx-2 text-gray-300">•</span>
+              <span class="text-sm text-jumbo">10 Mayo 2023</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-title">Título de Noticia Nacional 2</h3>
+            <p class="text-jumbo leading-relaxed mb-4">
+              Resumen corto de la segunda noticia nacional destacada para captar la atención del lector.
             </p>
-            <a href="/noticias/nacional-2" class="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-semibold">Leer más →</a>
+            <a href="/noticias/nacional-2" class="inline-flex items-center text-accent hover:text-title font-semibold transition-colors">
+              Leer más
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </article>
 
         <!-- Noticia 3 -->
-        <article class="flex flex-col bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <img src="https://placehold.co/240x160" alt="Noticia Nacional 3" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 text-indigo-700">Noticia Nacional 3</h3>
-            <p class="text-gray-700 leading-relaxed">
-              Resumen de la tercera noticia nacional destacada para mantener a los usuarios interesados.
+        <article class="flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden h-full">
+          <div class="aspect-w-16 aspect-h-9">
+            <img src="https://placehold.co/600x400/098666/ffffff?text=Noticia+Nacional" alt="Noticia Nacional 3" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <span class="text-sm text-accent font-semibold">Nacional</span>
+              <span class="mx-2 text-gray-300">•</span>
+              <span class="text-sm text-jumbo">5 Mayo 2023</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-title">Título de Noticia Nacional 3</h3>
+            <p class="text-jumbo leading-relaxed mb-4">
+              Resumen de la tercera noticia nacional destacada para mantener a los usuarios interesados en el contenido.
             </p>
-            <a href="/noticias/nacional-3" class="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-semibold">Leer más →</a>
+            <a href="/noticias/nacional-3" class="inline-flex items-center text-accent hover:text-title font-semibold transition-colors">
+              Leer más
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </article>
       </div>
 
-      <div class="text-center mt-8">
-        <a href="/noticias/nacionales" class="btn bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg">
+      <div class="text-center mt-12">
+        <a href="/noticias/nacionales" class="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white bg-accent hover:bg-title rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
           Ver todas las noticias nacionales
+          <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
         </a>
       </div>
     </div>
 
     <!-- Contenido de Noticias Internacionales (oculto por defecto) -->
-    <div id="contenido-internacionales" class="hidden">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div id="contenido-internacionales" class="tab-content hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Noticia 1 -->
-        <article class="flex flex-col bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <img src="https://placehold.co/240x160" alt="Noticia Internacional 1" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 text-emerald-700">Noticia Internacional 1</h3>
-            <p class="text-gray-700 leading-relaxed">
+        <article class="flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden h-full">
+          <div class="aspect-w-16 aspect-h-9">
+            <img src="https://placehold.co/600x400/020077/ffffff?text=Noticia+Intl" alt="Noticia Internacional 1" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <span class="text-sm text-secondary font-semibold">Internacional</span>
+              <span class="mx-2 text-gray-300">•</span>
+              <span class="text-sm text-jumbo">12 Mayo 2023</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-title">Título de Noticia Internacional 1</h3>
+            <p class="text-jumbo leading-relaxed mb-4">
               Resumen breve de la primera noticia internacional destacada para enganchar al lector.
             </p>
-            <a href="/noticias/internacional-1" class="inline-block mt-4 text-emerald-600 hover:text-emerald-800 font-semibold">Leer más →</a>
+            <a href="/noticias/internacional-1" class="inline-flex items-center text-secondary hover:text-title font-semibold transition-colors">
+              Leer más
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </article>
 
         <!-- Noticia 2 -->
-        <article class="flex flex-col bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <img src="https://placehold.co/240x160" alt="Noticia Internacional 2" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 text-emerald-700">Noticia Internacional 2</h3>
-            <p class="text-gray-700 leading-relaxed">
+        <article class="flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden h-full">
+          <div class="aspect-w-16 aspect-h-9">
+            <img src="https://placehold.co/600x400/020077/ffffff?text=Noticia+Intl" alt="Noticia Internacional 2" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <span class="text-sm text-secondary font-semibold">Internacional</span>
+              <span class="mx-2 text-gray-300">•</span>
+              <span class="text-sm text-jumbo">8 Mayo 2023</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-title">Título de Noticia Internacional 2</h3>
+            <p class="text-jumbo leading-relaxed mb-4">
               Resumen corto de la segunda noticia internacional para dar contexto y motivar clics.
             </p>
-            <a href="/noticias/internacional-2" class="inline-block mt-4 text-emerald-600 hover:text-emerald-800 font-semibold">Leer más →</a>
+            <a href="/noticias/internacional-2" class="inline-flex items-center text-secondary hover:text-title font-semibold transition-colors">
+              Leer más
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </article>
 
         <!-- Noticia 3 -->
-        <article class="flex flex-col bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <img src="https://placehold.co/240x160" alt="Noticia Internacional 3" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 text-emerald-700">Noticia Internacional 3</h3>
-            <p class="text-gray-700 leading-relaxed">
+        <article class="flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden h-full">
+          <div class="aspect-w-16 aspect-h-9">
+            <img src="https://placehold.co/600x400/020077/ffffff?text=Noticia+Intl" alt="Noticia Internacional 3" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <span class="text-sm text-secondary font-semibold">Internacional</span>
+              <span class="mx-2 text-gray-300">•</span>
+              <span class="text-sm text-jumbo">3 Mayo 2023</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-title">Título de Noticia Internacional 3</h3>
+            <p class="text-jumbo leading-relaxed mb-4">
               Resumen de la tercera noticia internacional para mantener el interés del lector.
             </p>
-            <a href="/noticias/internacional-3" class="inline-block mt-4 text-emerald-600 hover:text-emerald-800 font-semibold">Leer más →</a>
+            <a href="/noticias/internacional-3" class="inline-flex items-center text-secondary hover:text-title font-semibold transition-colors">
+              Leer más
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </article>
       </div>
 
-      <div class="text-center mt-8">
-        <a href="/noticias/internacionales" class="btn bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg">
+      <div class="text-center mt-12">
+        <a href="/noticias/internacionales" class="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white bg-secondary hover:bg-title rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
           Ver todas las noticias internacionales
+          <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
         </a>
       </div>
     </div>
-
   </div>
 </section>
 
-  <!-- JavaScript -->
 <script>
-  const tabNacionales = document.getElementById('tab-nacionales');
-  const tabInternacionales = document.getElementById('tab-internacionales');
-  const contenidoNacionales = document.getElementById('contenido-nacionales');
-  const contenidoInternacionales = document.getElementById('contenido-internacionales');
-
-  // Función para manejar el cambio de tabs
-  function switchTab(activeTab, inactiveTab, activeContent, inactiveContent) {
-    // Ocultar contenido inactivo y mostrar contenido activo
-    inactiveContent.classList.add('hidden');
-    activeContent.classList.remove('hidden');
-
-    // Eliminar clases activas de ambos tabs
-    inactiveTab.classList.remove('text-indigo-600', 'border-indigo-600', 'text-emerald-600', 'border-emerald-600');
-    activeTab.classList.add('text-indigo-600', 'border-indigo-600');
-
-    // Añadir clases activas al tab seleccionado
-    if (activeTab === tabNacionales) {
-      tabInternacionales.classList.add('text-gray-600');
-    } else {
-      tabNacionales.classList.add('text-gray-600');
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = {
+    nacionales: {
+      tab: document.getElementById('tab-nacionales'),
+      content: document.getElementById('contenido-nacionales')
+    },
+    internacionales: {
+      tab: document.getElementById('tab-internacionales'),
+      content: document.getElementById('contenido-internacionales')
     }
+  };
+
+  // Función para cambiar de pestaña
+  function switchTab(activeTab) {
+    // Actualizar todos los tabs y contenidos
+    Object.entries(tabs).forEach(([key, {tab, content}]) => {
+      if (key === activeTab) {
+        // Activar tab seleccionado
+        tab.classList.add('bg-white', 'shadow-sm', 'text-title');
+        tab.classList.remove('text-jumbo', 'hover:text-secondary');
+        tab.setAttribute('aria-selected', 'true');
+        content.classList.remove('hidden');
+      } else {
+        // Desactivar otros tabs
+        tab.classList.remove('bg-white', 'shadow-sm', 'text-title');
+        tab.classList.add('text-jumbo', 'hover:text-secondary');
+        tab.setAttribute('aria-selected', 'false');
+        content.classList.add('hidden');
+      }
+    });
   }
 
-  // Evento click para el tab de Noticias Nacionales
-  tabNacionales.addEventListener('click', () => {
-    switchTab(tabNacionales, tabInternacionales, contenidoNacionales, contenidoInternacionales);
-  });
+  // Event listeners para los tabs
+  tabs.nacionales.tab.addEventListener('click', () => switchTab('nacionales'));
+  tabs.internacionales.tab.addEventListener('click', () => switchTab('internacionales'));
 
-  // Evento click para el tab de Noticias Internacionales
-  tabInternacionales.addEventListener('click', () => {
-    switchTab(tabInternacionales, tabNacionales, contenidoInternacionales, contenidoNacionales);
-  });
+  // Activar pestaña nacional por defecto
+  switchTab('nacionales');
+});
 </script>

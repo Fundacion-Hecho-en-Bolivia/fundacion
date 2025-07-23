@@ -1,63 +1,148 @@
 <section class="bg-base-100 py-4">
-  <div class="relative mx-auto w-full  md:w-[80%] h-[70vh] md:h-[80vh] overflow-hidden flex items-center justify-center">
+  <div
+    class="relative mx-auto w-full md:w-[80%] overflow-hidden flex items-center justify-center"
+  >
     <!-- Carrusel (wrapper) -->
-    <div id="carouselWrapper" class="flex transition-transform duration-700 ease-in-out">
-      <!-- Slide 1 -->
-      <div class="carousel-item w-full">
-        <img src="http://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2024/05/LanzamientoVAON.jpg" class="w-full h-full object-cover" />
+    <div
+      id="carouselWrapper"
+      class="flex transition-transform duration-500 ease-in-out"
+      style="transform: translateX(-100%);"
+    >
+      <!-- Clone último slide -->
+      <div class="carousel-item w-full aspect-[16/9] flex-shrink-0">
+        <img
+          src="http://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2021/07/slidepageslider1.jpg"
+          class="w-full h-full object-cover"
+          alt="Slide 4"
+          loading="lazy"
+        />
       </div>
-      <!-- Slide 2 -->
-      <div class="carousel-item w-full">
-        <img src="http://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2023/12/IMG-20231204-WA0000.jpg" class="w-full h-full object-cover" />
+      <!-- Slides originales -->
+      <div class="carousel-item w-full aspect-[16/9] flex-shrink-0">
+        <img
+          src="http://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2024/09/producto-696x464-1.jpg"
+          class="w-full h-full object-cover"
+          alt="Slide 1"
+          loading="lazy"
+        />
       </div>
-      <!-- Slide 3 -->
-      <div class="carousel-item w-full">
-        <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp" class="w-full h-full object-cover" />
+      <div class="carousel-item w-full aspect-[16/9] flex-shrink-0">
+        <img
+          src="http://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2021/07/slidepageslider1.jpg"
+          class="w-full h-full object-cover"
+          alt="Slide 2"
+          loading="lazy"
+        />
       </div>
-      <!-- Slide 4 -->
-      <div class="carousel-item w-full">
-        <img src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp" class="w-full h-full object-cover" />
+      <div class="carousel-item w-full aspect-[16/9] flex-shrink-0">
+        <img
+          src="http://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2021/07/IMG-20200430-WA0002.jpg"
+          class="w-full h-full object-cover"
+          alt="Slide 3"
+          loading="lazy"
+        />
+      </div>
+      <div class="carousel-item w-full aspect-[16/9] flex-shrink-0">
+        <img
+          src="http://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2021/07/slidepageslider1.jpg"
+          class="w-full h-full object-cover"
+          alt="Slide 4"
+          loading="lazy"
+        />
+      </div>
+      <!-- Clone primer slide -->
+      <div class="carousel-item w-full aspect-[16/9] flex-shrink-0">
+        <img
+          src="https://www.fundacionhechoenbolivia.com/fundacionhb/wp-content/uploads/2021/07/vaon-1.jpg"
+          class="w-full h-full object-cover"
+          alt="Slide 1"
+          loading="lazy"
+        />
       </div>
     </div>
 
     <!-- Botones de navegación -->
-    <div class="absolute left-5 right-5 top-1/2 transform -translate-y-1/2 flex justify-between">
-      <button id="prevBtn" class="btn-circle bg-gray-600 text-white p-4 rounded-full hover:bg-gray-700">❮</button>
-      <button id="nextBtn" class="btn-circle bg-gray-600 text-white p-4 rounded-full hover:bg-gray-700">❯</button>
+    <div
+      class="absolute left-5 right-5 top-1/2 transform -translate-y-1/2 flex justify-between"
+    >
+      <button
+        id="prevBtn"
+        class="btn-circle bg-gray-600 text-white p-4 rounded-full hover:bg-gray-700 transition"
+        aria-label="Anterior"
+      >
+        ❮
+      </button>
+      <button
+        id="nextBtn"
+        class="btn-circle bg-gray-600 text-white p-4 rounded-full hover:bg-gray-700 transition"
+        aria-label="Siguiente"
+      >
+        ❯
+      </button>
     </div>
   </div>
 </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const carouselWrapper = document.getElementById('carouselWrapper');
-  const totalSlides = document.querySelectorAll('.carousel-item').length;
-  let currentIndex = 0;
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const carouselWrapper = document.getElementById("carouselWrapper");
+    const slides = document.querySelectorAll(".carousel-item");
+    const totalSlides = slides.length;
+    const slideWidth = slides[0].clientWidth;
+    let currentIndex = 1; // Empezamos en el primer slide real (índice 1)
+    let isTransitioning = false;
 
-  // Función para mover el carrusel a la izquierda
-  function moveToNextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides; // Ciclo continuo
-    updateCarouselPosition();
-  }
+    function moveToSlide(index) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      carouselWrapper.style.transition = "transform 0.5s ease-in-out";
+      carouselWrapper.style.transform = `translateX(${-slideWidth * index}px)`;
+      currentIndex = index;
+    }
 
-  // Función para mover el carrusel a la derecha
-  function moveToPrevSlide() {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Ciclo continuo
-    updateCarouselPosition();
-  }
+    // Cuando termina la transición, verificamos si hay que saltar (sin animación)
+    carouselWrapper.addEventListener("transitionend", () => {
+      isTransitioning = false;
+      // Si estamos en el clone primer slide (final)
+      if (currentIndex === totalSlides - 1) {
+        carouselWrapper.style.transition = "none";
+        currentIndex = 1;
+        carouselWrapper.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+      }
+      // Si estamos en el clone último slide (inicio)
+      if (currentIndex === 0) {
+        carouselWrapper.style.transition = "none";
+        currentIndex = totalSlides - 2;
+        carouselWrapper.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+      }
+    });
 
-  // Actualiza la posición del carrusel
-  function updateCarouselPosition() {
-    const offset = -100 * currentIndex; // Desplazamiento en porcentaje
-    carouselWrapper.style.transform = `translateX(${offset}%)`;
-  }
+    function moveNext() {
+      if (isTransitioning) return;
+      moveToSlide(currentIndex + 1);
+    }
 
-  // Asignar eventos a los botones
-  document.getElementById('nextBtn').addEventListener('click', moveToNextSlide);
-  document.getElementById('prevBtn').addEventListener('click', moveToPrevSlide);
+    function movePrev() {
+      if (isTransitioning) return;
+      moveToSlide(currentIndex - 1);
+    }
 
-  // Configurar transición automática (opcional)
-  setInterval(moveToNextSlide, 5000); // Avanzar automáticamente cada 5 segundos
-});
+    document.getElementById("nextBtn").addEventListener("click", moveNext);
+    document.getElementById("prevBtn").addEventListener("click", movePrev);
+
+    // Autoplay cada 5 segundos
+    setInterval(() => {
+      moveNext();
+    }, 5000);
+
+    // Inicializamos posición en el primer slide real
+    carouselWrapper.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+
+    // Ajuste dinámico al cambiar tamaño ventana
+    window.addEventListener("resize", () => {
+      const newSlideWidth = slides[0].clientWidth;
+      carouselWrapper.style.transition = "none";
+      carouselWrapper.style.transform = `translateX(${-newSlideWidth * currentIndex}px)`;
+    });
+  });
 </script>
-

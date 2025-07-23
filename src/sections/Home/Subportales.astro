@@ -4,13 +4,13 @@ import SubPortalCard from '../../components/pages/index/SubPortalCard.astro';
 import { subportales } from '../../components/pages/index/subportales';
 ---
 
-<section class="py-16 px-6 md:px-12 bg-white">
+<section class="py-20 px-4 sm:px-6 lg:px-12 bg-white">
   <div class="max-w-7xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-900">
-      Nuestros Subportales de la <span class="text-blue-700">Fundacion Hecho en Bolivia</span>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 text-slate-900">
+      Nuestros Subportales de la <span class="text-blue-700">Fundación Hecho en Bolivia</span>
     </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
       {subportales.map((portal) => (
         <SubPortalCard 
           titulo={portal.titulo}
